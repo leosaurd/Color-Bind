@@ -8,13 +8,22 @@ public abstract class EnemyBase : MonoBehaviour
 
 	public enemyStats stats = new enemyStats();
 
-	public struct enemyStats{
+	public struct enemyStats
+	{
 		public float speed;
 		public int health;
+		public int maxHealth;
 		public int damage;
 	}
 
-	public void DoDamage() {
+	private void Awake()
+	{
+		stats.health = stats.maxHealth;
+	}
+
+
+	public void DoDamage()
+	{
 		// TODO damage the player
 	}
 }
