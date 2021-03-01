@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 	public static GameManager singleton;
 
 	public float saturation;
+	
 	void Awake(){
 		singleton = this;
 	}

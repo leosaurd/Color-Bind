@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBase : MonoBehaviour
+public abstract class EnemyBase : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	public float distanceToEnd;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	public enemyStats stats = new enemyStats();
+
+	public struct enemyStats{
+		public float speed;
+		public int health;
+		public int damage;
+	}
+
+	public void DoDamage() {
+		// TODO damage the player
+	}
 }
