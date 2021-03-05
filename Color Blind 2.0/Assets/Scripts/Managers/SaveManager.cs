@@ -106,6 +106,8 @@ public class SaveManager : MonoBehaviour
 		// Used to identify the save to the user
 		public string saveName;
 
+		public Settings settings;
+
 		[System.Serializable]
 		public struct Settings
 		{

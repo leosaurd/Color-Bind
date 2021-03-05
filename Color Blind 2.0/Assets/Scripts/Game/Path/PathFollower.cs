@@ -30,7 +30,7 @@ public class PathFollower : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		if(!reachedEnd) MoveToNextNode();
+		if (!reachedEnd) MoveToNextNode();
 
 		controller.distanceToEnd = CalculateDistanceToEnd();
 	}
@@ -38,7 +38,7 @@ public class PathFollower : MonoBehaviour
 	float CalculateDistanceToEnd()
 	{
 		float distance = 0;
-		for(int i = Path.instance.path.IndexOf(nextNode); i < Path.instance.path.Count; i++)
+		for (int i = Path.instance.path.IndexOf(nextNode); i < Path.instance.path.Count; i++)
 		{
 			distance += Path.instance.path[i].GetComponent<Node>().distanceToNextNode;
 		}
@@ -53,11 +53,13 @@ public class PathFollower : MonoBehaviour
 		float distance = relativeVector.magnitude;
 		Vector3 directionToNextNode = relativeVector / distance;
 
-		if (distance <= 0.05f * controller.stats.speed / 500){
+		if (distance <= 0.05f * controller.stats.speed / 500)
+		{
 			currentNode = nextNode;
-			if(Path.instance.path.IndexOf(currentNode) == Path.instance.path.Count - 1){
+			if (Path.instance.path.IndexOf(currentNode) == Path.instance.path.Count - 1)
+			{
 				reachedEnd = true;
-				controller.DoDamage();
+				controller.Delete();
 				return;
 			}
 			nextNode = Path.instance.path[Path.instance.path.IndexOf(nextNode) + 1];
